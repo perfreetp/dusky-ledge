@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>体素地层实验室 · 考古实习教学工具</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23c99a4e'/%3E%3Cpath d='M6 12h20v4H6zM6 18h20v4H6zM6 24h20v2H6z' fill='%23241d10'/%3E%3C/svg%3E">
+<style>
+  :root { color-scheme: dark; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: #121417; color: #e6e2d8;
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  #root { height: 100%; }
+  .no-webgl {
+    position: fixed; inset: auto 16px 16px 16px; z-index: 9999;
+    padding: 14px 18px; border-radius: 10px; font-size: 13px; line-height: 1.7;
+    background: #2a161b; border: 1px solid #6b3a44; color: #f2c3cb;
+  }
+  .boot-fallback {
+    display: grid; place-content: center; height: 100%; gap: 10px; text-align: center;
+    color: #8a857c; font-size: 13px;
+  }
+</style>
+</head>
+<body>
+  <div id="root"><div class="boot-fallback">正在加载体素地层实验室…</div></div>
+  <script src="./dist/app.js"></script>
+</body>
+</html>

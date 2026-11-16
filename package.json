@@ -1,0 +1,20 @@
+{
+  "name": "strata-voxel-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "考古实习教学 · 三维体素地层建模与考核工具",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "playwright-core": "^1.65.1",
+    "typescript": "^7.0.2"
+  }
+}
