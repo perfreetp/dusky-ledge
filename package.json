@@ -1,0 +1,19 @@
+{
+  "name": "aerial-rig-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "绸吊/空中飞人动作教学三维骨骼动画编辑器",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
