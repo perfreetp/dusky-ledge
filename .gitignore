@@ -16,3 +16,8 @@ node_modules/
 __pycache__/
 .venv/
 venv/
+dist/
+scripts/*.log
+scripts/*.err
+scripts/shot-*.png
+scripts/*.svg
