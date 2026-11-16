@@ -1,0 +1,200 @@
+:root {
+  --bg: #071c2e;
+  --bg-panel: #0d2a42;
+  --bg-panel-2: #123654;
+  --border: #1e4a6e;
+  --fg: #dcecfa;
+  --fg-dim: #8fb4d0;
+  --accent: #46d6e0;
+  --accent-warm: #ff9a3c;
+  --danger: #ff5266;
+  --ok: #4ade80;
+  --warn: #ffd257;
+  color-scheme: dark;
+  font-family: 'Segoe UI', 'Microsoft YaHei', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+button:hover:not(:disabled) {
+  background: #1a4a70;
+  border-color: var(--accent);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+button.primary {
+  background: #145c70;
+  border-color: var(--accent);
+}
+button.primary:hover:not(:disabled) {
+  background: #1b7a94;
+}
+button.danger {
+  border-color: var(--danger);
+  color: #ffd7dc;
+}
+button.warn {
+  border-color: var(--warn);
+  color: #ffeec2;
+}
+button.toggled {
+  background: #145c70;
+  border-color: var(--accent);
+  color: #fff;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  width: 100%;
+}
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.panel h3 {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+}
+
+.panel .panel-body {
+  padding: 12px 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.spacer {
+  flex: 1;
+}
+.muted {
+  color: var(--fg-dim);
+}
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+}
+.tag.editing { color: var(--fg-dim); }
+.tag.submitted { color: var(--warn); border-color: var(--warn); }
+.tag.returned { color: var(--danger); border-color: var(--danger); }
+.tag.approved { color: var(--accent); border-color: var(--accent); }
+.tag.delivered { color: var(--ok); border-color: var(--ok); }
+
+/* 框选矩形（引擎动态创建） */
+.box-select-rect {
+  position: fixed;
+  border: 1px solid var(--accent);
+  background: rgba(70, 214, 224, 0.12);
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 要素信息卡片 */
+.feature-card {
+  position: fixed;
+  z-index: 40;
+  min-width: 230px;
+  background: rgba(13, 42, 66, 0.96);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 12px 14px;
+  pointer-events: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.feature-card h4 {
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+.feature-card dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  row-gap: 4px;
+}
+.feature-card dt {
+  color: var(--fg-dim);
+}
+.feature-card dd {
+  margin: 0;
+}
+
+/* 模态框 */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 10, 18, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  width: min(560px, 92vw);
+  max-height: 86vh;
+  overflow: auto;
+}

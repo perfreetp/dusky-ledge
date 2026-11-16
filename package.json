@@ -1,0 +1,27 @@
+{
+  "name": "deepsea-farm-3d",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test:unit": "tsx tests/core.test.ts && tsx tests/workflow.test.ts",
+    "test:smoke": "node tests/browser-smoke.mjs"
+  },
+  "dependencies": {
+    "jszip": "^3.10.2",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@types/three": "^0.187.0",
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.8"
+  }
+}
