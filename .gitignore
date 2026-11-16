@@ -1,3 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+apps/api/prisma/dev.db
+apps/api/prisma/dev.db-journal
+.DS_Store
+*.local
+coverage/
+.vite/
+
 .env
 .env.*
 !.env.example
@@ -12,7 +22,6 @@ secrets.*
 credentials*.json
 .npmrc
 .pypirc
-node_modules/
 __pycache__/
 .venv/
 venv/

@@ -1,0 +1,101 @@
+// 本地开发默认 SQLite（零外部依赖）。
+// 生产切换 PostgreSQL：
+//   1) provider 改为 postgresql
+//   2) url 改为 postgresql://user:pass@localhost:5432/pipeline_guard
+//   3) 运行 pnpm prisma:migrate
+// JSON 字段在 SQLite 下以 String 存储，应用层负责序列化/反序列化。
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  username     String   @unique
+  passwordHash String
+  displayName  String
+  role         String // engineer | supervisor | admin
+  createdAt    DateTime @default(now())
+  versions     ProjectVersion[]
+  reviews      ReviewRecord[]
+}
+
+model RobotConfig {
+  id        String   @id @default(cuid())
+  code      String   @unique
+  name      String
+  configJson String // 序列化后的 RobotConfig
+  createdAt DateTime @default(now())
+  projects  Project[]
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  name          String
+  code          String   @unique
+  status        String   @default("draft") // draft|submitted|approved|rejected
+  rulesJson     String // 序列化 ProjectRules
+  robotConfigId String
+  robotConfig   RobotConfig @relation(fields: [robotConfigId], references: [id])
+  currentVersion Int     @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  versions      ProjectVersion[]
+  reviews       ReviewRecord[]
+}
+
+model ProjectVersion {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  version     Int
+  changeNote  String   @default("")
+  modelJson   String // 序列化 SplineModel
+  inspectionJson String? // 序列化 InspectionResult
+  createdById String
+  createdBy   User     @relation(fields: [createdById], references: [id])
+  createdAt   DateTime @default(now())
+
+  @@unique([projectId, version])
+}
+
+model ReviewRecord {
+  id           String   @id @default(cuid())
+  projectId    String
+  project      Project  @relation(fields: [projectId], references: [id])
+  version      Int
+  status       String // submitted|approved|rejected
+  comment      String   @default("")
+  reviewerId   String
+  reviewerName String
+  reviewer     User     @relation(fields: [reviewerId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+model SegmentStat {
+  id        String @id @default(cuid())
+  projectId String
+  version   Int
+  segmentId String
+  segmentName String
+  jointId   String
+  length    Float
+  curvatureViolationLength Float
+  envelopeViolationLength Float
+  maxCurvature Float
+  createdAt DateTime @default(now())
+
+  @@unique([projectId, version, segmentId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String?
+  action    String
+  detail    String
+  createdAt DateTime @default(now())
+}

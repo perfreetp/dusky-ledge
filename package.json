@@ -1,0 +1,20 @@
+{
+  "name": "pipeline-guard-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "智慧工厂机器人管线包护套曲面建模工具",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter './packages/**' build && pnpm -r --filter './apps/**' build",
+    "dev:web": "pnpm --filter @pg/web dev",
+    "dev:api": "pnpm --filter @pg/api start:dev",
+    "test": "pnpm -r test",
+    "test:geom": "pnpm --filter @pg/geom-kernel test",
+    "lint": "pnpm -r lint",
+    "db:push": "pnpm --filter @pg/api prisma:push",
+    "db:seed": "pnpm --filter @pg/api seed",
+    "db:studio": "pnpm --filter @pg/api studio"
+  }
+}
