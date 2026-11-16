@@ -1,0 +1,36 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "smoke": "node scripts/smoke.mjs",
+    "smoke2": "node scripts/smoke2.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perfreetp/dusky-ledge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/perfreetp/dusky-ledge/issues"
+  },
+  "homepage": "https://github.com/perfreetp/dusky-ledge#readme",
+  "dependencies": {
+    "pixi.js": "^8.23.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.3.0",
+    "playwright": "^1.65.1",
+    "vite": "^8.3.8"
+  }
+}
