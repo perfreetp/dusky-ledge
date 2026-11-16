@@ -1,0 +1,71 @@
+:root {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: #14171d;
+  color: #dce6f5;
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+.btn {
+  background: #2a3140;
+  border: 1px solid #3a445a;
+  color: #dce6f5;
+  padding: 5px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.btn:hover {
+  background: #333c4e;
+}
+.btn.primary {
+  background: #2f5d95;
+  border-color: #4da3ff;
+}
+.btn.primary:hover {
+  background: #3a6fad;
+}
+.btn.warn {
+  border-color: #7a4040;
+  color: #ff9d9d;
+}
+.btn.warn:hover {
+  background: #3a2828;
+}
+.btn.sm {
+  padding: 3px 8px;
+  font-size: 11px;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #record-sheet,
+  #record-sheet * {
+    visibility: visible;
+  }
+  #record-sheet {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    border-radius: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
